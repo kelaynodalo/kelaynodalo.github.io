@@ -1,0 +1,18 @@
+---
+title: Home
+layout: default
+---
+<div class="main">
+    {% for repository in site.github.public_repositories %}
+    <div class="repo">
+        <div class="repo-name">
+            <a class="repo-link" href='{{ repository.html_url }}'>
+                {{ repository.name }}
+            </a>
+        </div>
+        <div class="repo-desc">
+            {{ repository.description }}
+        </div>
+    </div>
+    {% endfor %}
+</div>

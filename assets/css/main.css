@@ -1,0 +1,44 @@
+---
+---
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+    @apply bg-white dark:bg-gray-800;
+}
+
+img {
+    @apply inline-block max-w-full;
+}
+
+.header {
+    @apply px-4 py-3 text-xs;
+    @apply text-gray-50 bg-slate-700;
+    @apply dark:text-gray-300 dark:bg-slate-900;
+}
+
+.main {
+    @apply flex p-4;
+}
+
+.repo {
+    @apply w-full sm:w-96 m-auto shadow-md rounded-md;
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300;
+    @apply text-black bg-gray-300 border;
+    @apply dark:text-gray-100 dark:bg-gray-700 dark:border-gray-50;
+}
+
+.repo-name {
+    @apply px-4 pt-2.5 pb-2 rounded-t-md;
+    @apply bg-gray-400 dark:bg-gray-800;
+}
+
+.repo-link {
+    @apply hover:underline hover:underline-offset-2 hover:decoration-dotted;
+}
+
+.repo-desc {
+    @apply px-4 pt-2 pb-2.5;
+}
