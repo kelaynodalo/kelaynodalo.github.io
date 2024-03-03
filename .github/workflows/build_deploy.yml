@@ -10,22 +10,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📂 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install NPM dependencies
         run: |
           npm install
           npm install --only=dev
 
-      - name: 💎 setup ruby
+      - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: '3.1'
+          bundler-cache: true
+          cache-version: 1
 
-      - name: 🔨 install dependencies & build site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: true
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
 
       - name: 🚀 deploy
         uses: peaceiris/actions-gh-pages@v3
